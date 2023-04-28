@@ -3,23 +3,24 @@ import { useState, useEffect } from 'react';
 import Loader from './Loader';
 import { Link } from 'react-router-dom';
 
-const HomeTrendingCard = () => {
-    
-    const [trending, setTrending] = useState([]);
-    const [usdprice, setUsdPrice] = useState();
+const HomeTrendingCard = (props) => {
 
-    useEffect(() => {
+    // const trending = props.trendingData
+    // const [trending, setTrending] = useState([]);
+    // const [usdprice, setUsdPrice] = useState();
+
+    // useEffect(() => {
         
-        fetch('https://api.coingecko.com/api/v3/search/trending')
-            .then(response => response.json())
-            .then(data => setTrending([...data.coins]))
-            .catch(error => console.log(error));
+    //     // fetch('https://api.coingecko.com/api/v3/search/trending')
+    //     //     .then(response => response.json())
+    //     //     .then(data => setTrending([...data.coins]))
+    //     //     .catch(error => console.log(error));
 
-        fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd')
-            .then(response => response.json())
-            .then(data => setUsdPrice(data.bitcoin.usd))
-            .catch(error => console.log(error));
-        },[])
+    //     fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd')
+    //         .then(response => response.json())
+    //         .then(data => setUsdPrice(data.bitcoin.usd))
+    //         .catch(error => console.log(error));
+    //     },[])
 
     return ( 
         <div className=" 
@@ -33,8 +34,8 @@ const HomeTrendingCard = () => {
                 ">
                     <h1 className=" font-semibold lg:text-2xl md:text-xl text-[16px] text-center mx-2">Trending in the last 24 Hrs.</h1>
                     <div className="flex flex-col flex-wrap h-full items-center">
-                    {trending.length ?  (
-                        trending.slice(0,7).map(trend => (
+                    {props.trendingData?.length ?  (
+                        props.trendingData.slice(0,7).map(trend => (
                             <div className=" 
                                 bg-[#054569]
                                 lg:w-[210px] lg:h-[50px]
@@ -55,7 +56,7 @@ const HomeTrendingCard = () => {
                                         <span className="overflow-hidden">${trend.item.symbol}</span> 
                                     </Link>
                                     </div>
-                                    <div className="text-center md:w-[175px] w-[75px] md:text-[15px] text-[11px] lg:mx-1 mx-2">${((trend.item.price_btc * usdprice)/1).toFixed(5)} </div>
+                                    <div className="text-center md:w-[175px] w-[75px] md:text-[15px] text-[11px] lg:mx-1 mx-2">${((trend.item.price_btc * props.btcPrice)/1).toFixed(5)} </div>
                             </div>
                         ))
                     ) : (

@@ -1,34 +1,67 @@
 import { useState, useEffect } from "react";
 import Exchangecalc from "../testComp/Exchangecalc";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 
-const ExchangeCalculator = () => {
+const ExchangeCalculator = (props) => {
 
-    const [currencyPrice, setcurrencyPrice] = useState([])
+    const {data} = useQuery(['currencyPrices'], () => {
+        return axios.get('https://v6.exchangerate-api.com/v6/b51a7bc71ceacdda84823787/latest/USD')
+            // .then(response => response.json())
+            .then((res) => res.data.conversion_rates)
+    })
+    
+    // console.log(data.conversion_rates)
+    const toConvert = data
 
-    useEffect(() => {
+    const transform = (data) => {
+        const currencyObj = data;
+        const currencyArr = [];
 
-    fetch('https://v6.exchangerate-api.com/v6/b51a7bc71ceacdda84823787/latest/USD')
-        .then(response => response.json())
-        .then(data => data.conversion_rates)
-        .then(data =>  {
-            const currencyObj = data;
-            const currencyArr = [];
+        for (const key in currencyObj) {
+            if (currencyObj.hasOwnProperty(key)) {
+            currencyArr.push({
+                name: key,
+                price: currencyObj[key]
+            });
+            }
+        }
+        return currencyArr
+    }
 
-            for (const key in currencyObj) {
-                if (currencyObj.hasOwnProperty(key)) {
-                  currencyArr.push({
-                    name: key,
-                    price: currencyObj[key]
-                  });
-                }
-              }
+    const currencyPrice = transform(toConvert)
 
-              setcurrencyPrice(currencyArr);
-        })
-        .catch(error => console.log(error));
+    // const currencyPrice = transform(data)
+    // console.log(currencyPrice)
 
-    },[])
+    // console.log(currencyPrice)
+
+    // const currencyPrice = props.fiatData
+    // const [currencyPrice, setcurrencyPrice] = useState([])
+
+    // useEffect(() => {
+
+    // fetch('https://v6.exchangerate-api.com/v6/b51a7bc71ceacdda84823787/latest/USD')
+    //     .then(response => response.json())
+    //     .then(data => data.conversion_rates)
+    //     .then(data =>  {
+    //         const currencyObj = data;
+    //         const currencyArr = [];
+
+    //         for (const key in currencyObj) {
+    //             if (currencyObj.hasOwnProperty(key)) {
+    //               currencyArr.push({
+    //                 name: key,
+    //                 price: currencyObj[key]
+    //               });
+    //             }
+    //           }
+
+    //           setcurrencyPrice(currencyArr);
+    //     })
+    //     .catch(error => console.log(error));
+    // },[])
 
     
    
@@ -76,7 +109,7 @@ const ExchangeCalculator = () => {
         setExitFee(0)
         setTotal(0)
     }
-    console.log(currencyPrice.map(e => e))
+    // console.log(currencyPrice.map(e => e))
 
     return (
         <div className={`
@@ -143,7 +176,7 @@ const ExchangeCalculator = () => {
 
                                 <div className="bg-[#054569] lg:p-3 md:p-1.5 p-2 rounded-lg border-[1px] border-[#9ccddc] flex flex-row" >
                                     <span class="fi fi-ph mr-1"></span>
-                                    <h1 className="font-semibold text-[white] text-glow  lg:text-[20px] md:text-[20px] text-[15px]">₱ {currencyPrice.slice(111,112).map(e => e.price)}</h1>
+                                    <h1 className="font-semibold text-[white] text-glow  lg:text-[20px] md:text-[20px] text-[15px]">₱ {currencyPrice.slice(111,112).map(e => e.price.toFixed(2))}</h1>
                                 </div>
                                
                             </article>
@@ -187,7 +220,7 @@ const ExchangeCalculator = () => {
 
                                 <div className="bg-[#054569] lg:p-3 md:p-1.5 p-2 rounded-lg border-[1px] border-[#9ccddc] flex flex-row" >
                                     <span class="fi fi-cn mr-1"></span>
-                                    <h1 className="font-semibold text-[white] text-glow  lg:text-[20px] md:text-[20px] text-[15px]">¥ {currencyPrice.slice(71,72).map(e => e.price)}</h1>
+                                    <h1 className="font-semibold text-[white] text-glow  lg:text-[20px] md:text-[20px] text-[15px]">¥ {currencyPrice.slice(71,72).map(e => e.price.toFixed(2))}</h1>
                                 </div>
                                
                             </article>

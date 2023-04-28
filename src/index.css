@@ -242,6 +242,28 @@ background: linear-gradient(86deg, rgba(0, 0, 0, 1) 20%, rgba(0,92,130,0.4) 100%
   border: transparent */
 }
 
+/* PriceBar */
+
+.slideshow-container {
+  overflow: hidden;
+  /* border: 1px solid #ddd; */
+}
+
+.slideshow {
+
+  animation: slide 300s infinite linear;
+}
+
+
+@keyframes slide {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-1000%);
+  }
+}
+
 
 
 @tailwind base;

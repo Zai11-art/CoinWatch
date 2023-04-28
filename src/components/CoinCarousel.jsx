@@ -3,31 +3,40 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 import Loader from './Loader';
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
 
-const CoinCarousel = () => {
+const CoinCarousel = (props) => {
 
-    const [price, setpriceData] = useState([]);
-    const [trending, setTrending] = useState([]);
-    const [usdprice, setUsdPrice] = useState();
+    const price = props.coinList
+    const trending = props.trending
+    const usdprice = props.btcPrice
+    console.log(price)
 
-    useEffect(() => {
+    // const [price, setpriceData] = useState([]);
+    // const [trending, setTrending] = useState([]);
+    // const [usdprice, setUsdPrice] = useState();
 
-        fetch('https://api.coingecko.com/api/v3/search/trending')
-            .then(response => response.json())
-            .then(data => setTrending([...data.coins]))
-            .catch(error => console.log(error));
+    // useEffect(() => {
 
-        fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=true&locale=en')
-            .then(response => response.json())
-            .then(data => setpriceData([...data]))
-            .catch(error => console.log(error));
+    //     axios.get('https://api.coingecko.com/api/v3/search/trending')
+    //         .then(response => response.json())
+    //         .then(data => setTrending([...data.coins]))
+    //         .catch(error => console.log(error));
 
-        fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd')
-            .then(response => response.json())
-            .then(data => setUsdPrice(data.bitcoin.usd))
-            .catch(error => console.log(error));
-    }, []);
+    //     axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=true&locale=en')
+    //         .then(response => response.json())
+    //         .then(data => setpriceData([...data]))
+    //         .catch(error => console.log(error));
+
+    //     axios.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd')
+    //         .then(response => response.json())
+    //         .then(data => setUsdPrice(data.bitcoin.usd))
+    //         .catch(error => console.log(error));
+    // }, []);
+
+    
 
   return (
     <div className="

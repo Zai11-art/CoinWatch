@@ -4,8 +4,9 @@ import LeverageCalculator from "../components/LeverageCalc.jsx";
 import ExchangeCalculator from "../components/ExchangeCalc.jsx";
 
 
+function AppPage(props) {
+    const fiatData = props.fiatData
 
-function AppPage() {
     const [activeCalc, setActiveCalc] = useState("calc1")
 
     const handleClick = (calc) => {
@@ -79,54 +80,14 @@ function AppPage() {
                             </button>
                         </div>
                     
-                        {/* <article className="bg-[#062c43] lg:w-[250px] md:w-[300px] w-full h-[50px] rounded-lg mr-6 my-2
-                            flex flex-row items-center justify-around border-[#9ccddc] border-[0.5px]
-                            duration-200 ease-in-out hover:scale-[1.02]">
-                                <div>
-                                <button onClick={() => handleClick("calc2")} className={`text-white text-glow lg:text-lg md:text-md text-sm `}>Leverage Calculator</button>
-                                </div>
-                        </article>
-                        <article className="bg-[#062c43] lg:w-[250px] md:w-[300px] w-full h-[50px] rounded-lg mr-6 my-2
-                            flex flex-row items-center justify-around border-[#9ccddc] border-[0.5px]
-                            duration-200 ease-in-out hover:scale-[1.02]">
-                                <div>
-                                <button onClick={() => handleClick("calc3")} className={`text-white text-glow lg:text-lg md:text-md text-sm`}>Currency Exchange</button>
-                                </div>
-                        </article> */}
                     </div>
                 </div>
             </div>
             <div className="lg:mt-1 md:mt-0 mt-[0]">
                 {activeCalc === "calc1" && <ProfitCalculator/>}
                 {activeCalc === "calc2" && <LeverageCalculator/>}
-                {activeCalc === "calc3" && <ExchangeCalculator/>}
+                {activeCalc === "calc3" && <ExchangeCalculator fiatData={fiatData}/>}
             </div>
-            
-
-            
-            
-            {/* <div className="
-             z-[2] absolute
-            lg:w-[1000px] lg:h-[165px]
-            md:w-[700px] md:h-[250px]
-            w-[450px] h-[350px]
-            rounded-lg 
-            pb-4 pl-5
-            lg:mt-[750px] md:mt-[775px] mt-[960px]
-            flex  flex-col">
-                <div className="pt-2 pl-2 ">
-                    <h1 className="text-white text-2xl font-bold flex items-center ">
-                     How to use? 
-                    </h1>
-                    <ul className="text-[white] lg:text-md md:text-md text-[13px] italic py-2">
-                        <li>1. Enter your investment amount, Buy price, Sell price.</li>
-                        <li>2. Investment fee and Exit fee may vary. If not available, can leave it blank.</li>
-                        <li>3. Press the calculate button and check out the results above. </li>
-                    </ul>
-                   
-                </div>
-            </div> */}
-                
         </div>
      );
 }

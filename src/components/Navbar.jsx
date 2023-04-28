@@ -12,7 +12,7 @@ let navLinks = [
 const [open, setOpen] = useState(false)
 
     return ( 
-    <header className='top-0 left-0 shadow-2xl w-full sticky z-[101]'>
+    <header className='top-0 left-0 shadow-2xl w-full sticky z-[50]'>
         <div className=" flex md:justify-between justify-center flex-col md:flex-row  z-[10]
              p-2 md:items-center bg-[#062c43] h-[75px]">
 

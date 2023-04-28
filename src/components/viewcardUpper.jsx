@@ -7,8 +7,8 @@ const formatNum = (x) => {
   }
 
   const formatNumLessOne = (x) => {
-    let isNegative = x < 0 ? '-' : '';
-    return  isNegative + '$ ' + Math.abs(x.toFixed(6));
+    let isNegative = x < 1 ? '-' : '';
+    return  isNegative + '$ ' + Math.abs(x.toFixed(7));
   }
   
 const ViewCardUpper = (props) => {
@@ -82,7 +82,7 @@ const ViewCardUpper = (props) => {
 
             </div>
             <div className="flex flex-row items-center mt-1">
-            <h1 className="text-4xl text-[white] font-bold text-glow">${response.market_data.current_price.usd.toLocaleString()}</h1>
+            <h1 className="text-4xl text-[white] font-bold text-glow">${response.market_data.current_price.usd.toFixed(2)}</h1>
             <div className="p-2 rounded-lg bg-[#062c43] ml-2 mt-1">
                 <h2 className="text-sm text-[white] font-bold">Rank #{response.market_cap_rank}</h2>
             </div>
@@ -116,15 +116,15 @@ const ViewCardUpper = (props) => {
                 bg-[#03111a] mt-3 rounded-xl flex flex-row justify-around p-1 meter-bgMain">
                 <div className="flex flex-col items-center justify-center">
                 <h1 className="text-white">24hr-High</h1>
-                <h1 className="text-[#97ff29] text-xl font-bold">${response.market_data.high_24h.usd.toLocaleString()}</h1>
+                <h1 className="text-[#97ff29] xl:text-xl lg:text-[16px] md:text-lg font-bold">${response.market_data.high_24h.usd.toFixed(2)}</h1>
                 </div>
                 <div className="flex flex-col items-center justify-center">
                 <h1 className="text-white">24hr-Low</h1>
-                <h1 className="text-[#ff4929] text-xl font-bold">${response.market_data.low_24h.usd.toLocaleString()}</h1>
+                <h1 className="text-[#ff4929] xl:text-xl lg:text-[16px] md:text-lg font-bold">${response.market_data.low_24h.usd.toFixed(2)}</h1>
                 </div>
                 <div className="flex flex-col items-center justify-center">
-                <h1 className="text-white">Change in 24hr</h1>
-                <h1 className={`text-[#ff4929] text-xl font-bold ${response.market_data.price_change_24h > 0 ? 'text-[#97ff29]' : 'text-[#ff4929]'}`}>
+                <h1 className="text-white">Change-24hr</h1>
+                <h1 className={`text-[#ff4929] xl:text-xl lg:text-[16px] md:text-lg font-bold ${response.market_data.price_change_24h > 0 ? 'text-[#97ff29]' : 'text-[#ff4929]'}`}>
                     {response.market_data.price_change_24h > 1 ? formatNum(response.market_data.price_change_24h) : formatNumLessOne(response.market_data.price_change_24h) }
                 </h1>
                 </div>

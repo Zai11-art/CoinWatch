@@ -5,26 +5,58 @@ import {Link} from 'react-router-dom'
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
 import { getCoinDataList } from '../utils/utils';
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
-const HomeMarketList = () => {
-     // for pagination
-     const [currentPage, setCurrentPage] = useState(1);
-     const [postsPerPage, setpostsPerPage] = useState(50);
-     const [price, setprice] = useState([])
- 
-     const lastPostIndex = currentPage * postsPerPage;
-     const firstPostIndex = lastPostIndex - postsPerPage;
+const HomeMarketList = (props) => {
     
-    useEffect(() => {
-        getCoinDataList()
-        .then(data => {
-            setprice([...data]);
-        })
-        .catch(error => {
-            console.log(error);
-        });
+    const data = props.coinData
+
+    // for pagination
+   const [currentPage, setCurrentPage] = useState(1);
+   const [postsPerPage, setpostsPerPage] = useState(50);
+
+   const lastPostIndex = currentPage * postsPerPage;
+   const firstPostIndex = lastPostIndex - postsPerPage;
+   
     
-    }, [])
+    // if (isLoading || isError) {
+    //     refetch()
+    // }
+
+
+    
+    // const priceSet = (object) => {
+    //     return [...object]
+    // }
+    // const price = data
+
+    // console.log(price)
+
+    // if (isLoading) {
+    //     return <div><h1>LOADING</h1></div>
+    // }
+
+    // if (isError) {
+    //     return <div><h1>ERROR</h1></div>
+    // }
+
+    // const price = data;
+
+    //  const [price, setprice] = useState([])
+
+
+    
+    // useEffect(() => {
+    //     getCoinDataList()
+    //     .then(data => {
+    //         setprice([...data]);
+    //     })
+    //     .catch(error => {
+    //         console.log(error);
+    //     });
+    
+    // }, [])
 
  
 
@@ -46,7 +78,7 @@ const HomeMarketList = () => {
                     </div>
                     <div>
                         <Pagination 
-                        totalPosts={price.length} 
+                        totalPosts={data?.length} 
                         postsPerPage={postsPerPage}
                         setCurrentPage={setCurrentPage}
                         currentPage={currentPage}
@@ -83,13 +115,13 @@ const HomeMarketList = () => {
                         <div className="text-center md:w-[175px] w-[100px] md:text-[15px] text-[11px] lg:mx-1 ml-2 mr-4">Graph - Week</div>           
                     </div>
             
-                {price.length ? (
-                        price.slice(firstPostIndex,lastPostIndex).map(data => 
+                {data?.length ? (
+                        data?.slice(firstPostIndex,lastPostIndex).map(data => 
                             <div className=" 
                             cryptocard-grad
-                            lg:w-[1000px] lg:h-[75px]
-                            md:w-[100%] md:h-[75px]
-                            w-[100%] h-[75px]
+                            lg:w-[1000px] lg:h-[50px]
+                            md:w-[100%] md:h-[50px]
+                            w-[100%] h-[50px]
                             mt-5 rounded-lg 
                             text-white z-[1]
                             flex flex-row items-center 
@@ -133,12 +165,12 @@ const HomeMarketList = () => {
                     <div className="flex lg:flex-row md:flex-row flex-col items-center justify-between w-full my-2">
                     <div>
                         <h1 className="lg:text-[17px] md:text-[15px] text-[15px] text-[#9ccddc] mt-2">
-                        Showing {Math.ceil(price.length / (price.length / postsPerPage))} results out of {price.length}
+                        Showing {Math.ceil(data?.length / (data?.length / postsPerPage))} results out of {data?.length}
                         </h1>
                     </div>
                     <div>
                         <Pagination 
-                        totalPosts={price.length} 
+                        totalPosts={data?.length} 
                         postsPerPage={postsPerPage}
                         setCurrentPage={setCurrentPage}
                         currentPage={currentPage}
