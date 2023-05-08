@@ -81,7 +81,7 @@ const ProfitCalculator = () => {
                     <div className="flex flex-col lg:w-[300px] md:w-[200px] w-[190px] mb-6">
                         <label htmlFor="" className=" text-white lg:text-lg font-semibold text-md mb-3">Cost / Margin: </label>
                         <div className="flex">
-                            <span class="inline-flex items-center px-3 lg:text-xl text-md
+                            <span className="inline-flex items-center px-3 lg:text-xl text-md
                             text-gray-900   bg-[#9ccddc] border border-r-0 border-gray-300 
                             rounded-l-md ">
                             $
@@ -98,7 +98,7 @@ const ProfitCalculator = () => {
                     <div className="flex flex-col lg:w-[300px] md:w-[200px] w-[190px] mb-6">
                         <label htmlFor="" className=" text-white lg:text-lg font-semibold text-md mb-3">Buy Price: </label>
                         <div className="flex">
-                            <span class="inline-flex items-center px-3 lg:text-xl text-md
+                            <span className="inline-flex items-center px-3 lg:text-xl text-md
                             text-gray-900   bg-[#9ccddc] border border-r-0 border-gray-300 
                             rounded-l-md ">
                             $
@@ -114,7 +114,7 @@ const ProfitCalculator = () => {
                     <div className="flex flex-col lg:w-[300px] md:w-[200px] w-[190px] mb-6">
                         <label htmlFor="" className=" text-white lg:text-lg font-semibold text-md mb-3">Sell Price: </label>
                         <div className="flex">
-                            <span class="inline-flex items-center px-3 lg:text-xl text-md
+                            <span className="inline-flex items-center px-3 lg:text-xl text-md
                             text-gray-900   bg-[#9ccddc] border border-r-0 border-gray-300 
                             rounded-l-md ">
                             $
@@ -130,7 +130,7 @@ const ProfitCalculator = () => {
                     <div className="flex flex-col lg:w-[300px] md:w-[200px] w-[190px] mb-6">
                         <label htmlFor="" className=" text-white lg:text-lg font-semibold text-md mb-3">Investment Fee: </label>
                         <div className="flex">
-                            <span class="inline-flex items-center px-3 lg:text-xl text-md
+                            <span className="inline-flex items-center px-3 lg:text-xl text-md
                             text-gray-900   bg-[#9ccddc] border border-r-0 border-gray-300 
                             rounded-l-md ">
                             $
@@ -146,7 +146,7 @@ const ProfitCalculator = () => {
                     <div className="flex flex-col lg:w-[300px] md:w-[200px] w-[190px] lg:mb-6 md:mb-6 mb-1">
                         <label htmlFor="" className=" text-white lg:text-lg font-semibold text-md mb-3">Exit Fee: </label>
                         <div className="flex">
-                            <span class="inline-flex items-center px-3 lg:text-xl text-md
+                            <span className="inline-flex items-center px-3 lg:text-xl text-md
                             text-gray-900   bg-[#9ccddc] border border-r-0 border-gray-300 
                             rounded-l-md ">
                             $

@@ -166,7 +166,7 @@ const ExchangeCalculator = (props) => {
                             flex flex-row items-center justify-around border-[#9ccddc] border-[0.5px]
                             duration-200 ease-in-out hover:scale-[1.02]">
                                 <div className="bg-[#054569] lg:p-3 md:p-1.5 p-2 rounded-lg border-[1px] border-[#9ccddc] flex flex-row" >
-                                    <span class="fi fi-us mr-1"></span>
+                                    <span className="fi fi-us mr-1"></span>
                                     <h1 className="font-semibold text-[white] text-glow  lg:text-[20px] md:text-[20px] text-[15px] ">1 USD $</h1>
                                 </div>
 
@@ -175,7 +175,7 @@ const ExchangeCalculator = (props) => {
                                 </div>
 
                                 <div className="bg-[#054569] lg:p-3 md:p-1.5 p-2 rounded-lg border-[1px] border-[#9ccddc] flex flex-row" >
-                                    <span class="fi fi-ph mr-1"></span>
+                                    <span className="fi fi-ph mr-1"></span>
                                     <h1 className="font-semibold text-[white] text-glow  lg:text-[20px] md:text-[20px] text-[15px]">₱ {currencyPrice.slice(111,112).map(e => e.price.toFixed(2))}</h1>
                                 </div>
                                
@@ -188,7 +188,7 @@ const ExchangeCalculator = (props) => {
                             flex flex-row items-center justify-around border-[#9ccddc] border-[0.5px]
                             duration-200 ease-in-out hover:scale-[1.02]">
                                 <div className="bg-[#054569] lg:p-3 md:p-1.5 p-2 rounded-lg border-[1px] border-[#9ccddc] flex flex-row" >
-                                    <span class="fi fi-eu mr-1"></span>
+                                    <span className="fi fi-eu mr-1"></span>
                                     <h1 className="font-semibold text-[white] text-glow  lg:text-[20px] md:text-[20px] text-[15px] ">1 EUR €</h1>
                                 </div>
 
@@ -197,7 +197,7 @@ const ExchangeCalculator = (props) => {
                                 </div>
 
                                 <div className="bg-[#054569] lg:p-3 md:p-1.5 p-2 rounded-lg border-[1px] border-[#9ccddc] flex flex-row" >
-                                    <span class="fi fi-us mr-1"></span>
+                                    <span className="fi fi-us mr-1"></span>
                                     <h1 className="font-semibold text-[white] text-glow  lg:text-[20px] md:text-[20px] text-[15px]">$ {(1/currencyPrice.slice(43,44).map(e => e.price)).toFixed(4)}</h1>
                                 </div>
                                
@@ -210,7 +210,7 @@ const ExchangeCalculator = (props) => {
                             flex flex-row items-center justify-around border-[#9ccddc] border-[0.5px]
                             duration-200 ease-in-out hover:scale-[1.02]">
                                 <div className="bg-[#054569] lg:p-3 md:p-1.5 p-2 rounded-lg border-[1px] border-[#9ccddc] flex flex-row" >
-                                    <span class="fi fi-us mr-1"></span>
+                                    <span className="fi fi-us mr-1"></span>
                                     <h1 className="font-semibold text-[white] text-glow  lg:text-[20px] md:text-[20px] text-[15px] ">1 USD $</h1>
                                 </div>
 
@@ -219,7 +219,7 @@ const ExchangeCalculator = (props) => {
                                 </div>
 
                                 <div className="bg-[#054569] lg:p-3 md:p-1.5 p-2 rounded-lg border-[1px] border-[#9ccddc] flex flex-row" >
-                                    <span class="fi fi-cn mr-1"></span>
+                                    <span className="fi fi-cn mr-1"></span>
                                     <h1 className="font-semibold text-[white] text-glow  lg:text-[20px] md:text-[20px] text-[15px]">¥ {currencyPrice.slice(71,72).map(e => e.price.toFixed(2))}</h1>
                                 </div>
                                
@@ -232,7 +232,7 @@ const ExchangeCalculator = (props) => {
                             flex flex-row items-center justify-around border-[#9ccddc] border-[0.5px]
                             duration-200 ease-in-out hover:scale-[1.02]">
                                 <div className="bg-[#054569] lg:p-3 md:p-1.5 p-2 rounded-lg border-[1px] border-[#9ccddc] flex flex-row" >
-                                    <span class="fi fi-gb mr-1"></span>
+                                    <span className="fi fi-gb mr-1"></span>
                                     <h1 className="font-semibold text-[white] text-glow  lg:text-[20px] md:text-[20px] text-[15px] ">1 GBP £</h1>
                                 </div>
 
@@ -241,7 +241,7 @@ const ExchangeCalculator = (props) => {
                                 </div>
 
                                 <div className="bg-[#054569] lg:p-3 md:p-1.5 p-2 rounded-lg border-[1px] border-[#9ccddc] flex flex-row" >
-                                    <span class="fi fi-us mr-1"></span>
+                                    <span className="fi fi-us mr-1"></span>
                                     <h1 className="font-semibold text-[white] text-glow  lg:text-[20px] md:text-[20px] text-[15px]">$ {(1/currencyPrice.slice(47,48).map(e => e.price)).toFixed(4)}</h1>
                                 </div>
                                

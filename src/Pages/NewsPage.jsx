@@ -3,6 +3,7 @@ import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 import Pagination from "../components/Pagination";
+import shortid from 'shortid';
 
 function NewsPage() {
     // get latest date 
@@ -72,7 +73,7 @@ function NewsPage() {
                     <div className="flex lg:flex-row  lg:flex-nowrap flex-wrap px-6 justify-center lg:mb-2 md:mb-2 mb-0">
                     {price.length ? (
                         price.slice(0,3).map(crypto => (
-                            <article className="bg-[#062c43] lg:w-[300px] md:w-[300px] w-full h-[70px] rounded-lg mr-6 my-2
+                            <article key={crypto.id} className="bg-[#062c43] lg:w-[300px] md:w-[300px] w-full h-[70px] rounded-lg mr-6 my-2
                             flex flex-row items-center justify-around border-[#9ccddc] border-[0.5px]
                             duration-200 ease-in-out hover:scale-[1.02]">
                                 <div>
@@ -160,7 +161,7 @@ function NewsPage() {
                         </div>
                         {news.length ? (
                             news.slice(firstPostIndex,lastPostIndex).map(data => (
-                                <div className="border-[#094663]  border-[0.1px]
+                                <div key={shortid.generate()} className="border-[#094663]  border-[0.1px]
                                 bg-[#020e14] shadow-xl
                                 rounded-md  
                                 lg:h-[210px] lg:w-[100%] 

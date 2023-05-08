@@ -36,7 +36,7 @@ const HomeTrendingCard = (props) => {
                     <div className="flex flex-col flex-wrap h-full items-center">
                     {props.trendingData?.length ?  (
                         props.trendingData.slice(0,7).map(trend => (
-                            <div className=" 
+                            <div key={trend.item.id} className="
                                 bg-[#054569]
                                 lg:w-[210px] lg:h-[50px]
                                 md:w-[270px] md:h-[30px]

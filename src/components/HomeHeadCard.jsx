@@ -2,9 +2,9 @@ import React from 'react'
 
 const HomeHeadCard = () => {
     let cardLinks = [
-        {icon: <ion-icon  name="bar-chart-outline"></ion-icon>, details:"Exploring the Exciting World of Cryptocurrency Markets."},
-        {icon: <ion-icon name="calculator-outline"></ion-icon>, details:"Maximizing Your Crypto Trading Potential."},
-        {icon: <ion-icon name="search-circle-outline"></ion-icon>, details:"Discovering the Latest Trends and Insights in Crypto Markets."},
+        {icon: <ion-icon  name="bar-chart-outline"></ion-icon>, details:"Exploring the Exciting World of Cryptocurrency Markets.", id:0},
+        {icon: <ion-icon name="calculator-outline"></ion-icon>, details:"Maximizing Your Crypto Trading Potential.", id:1},
+        {icon: <ion-icon name="search-circle-outline"></ion-icon>, details:"Discovering the Latest Trends and Insights in Crypto Markets.", id:2},
     ]
 
 
@@ -41,7 +41,7 @@ const HomeHeadCard = () => {
                 ">
                     {
                         cardLinks.map(link => 
-                        <div className="HeadCard-bg 
+                        <div key={link.id} className="HeadCard-bg 
                         lg:w-[300px] lg:h-[50px]
                         md:w-[300px] md:h-[50px]
                         w-[350px] h-[50px]

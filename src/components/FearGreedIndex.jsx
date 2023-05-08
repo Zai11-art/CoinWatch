@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Loader from "./Loader";
 import axios from "axios";
-
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 const MyElement = styled.div`
@@ -10,13 +10,22 @@ const MyElement = styled.div`
 `;
 
 const FearGreedIndex = (props) => {
-  const [dataIndex, setdataIndex] = useState([]);
+  // const [dataIndex, setdataIndex] = useState([]);
 
-  useEffect(() => {
-    axios.get("https://api.alternative.me/fng/?limit=10&format=json")
-      .then((data) => setdataIndex(data.data.data))
-      .catch((error) => console.log(error));
-  }, []);
+  // useEffect(() => {
+    // axios.get("https://api.alternative.me/fng/?limit=10&format=json")
+    //   .then((data) => setdataIndex(data.data.data))
+    //   .catch((error) => console.log(error));
+
+    const {data : dataIndex, isLoading} = useQuery(['fearGreedData'], () => {
+      return axios.get("https://api.alternative.me/fng/?limit=10&format=json")
+      .then((res) => res.data.data)
+      // .then((res) => console.log(res.data.data))
+      })
+    
+  // }, []);
+
+  
 
   return (
     <div
@@ -32,7 +41,10 @@ const FearGreedIndex = (props) => {
       <h1 className="font-semibold lg:text-2xl md:text-xl text-[16px] text-center mx-2">
         Fear / Greed Index
       </h1>
-      <div className="flex flex-col flex-wrap h-full items-center">
+      {isLoading ? (
+          <Loader></Loader>
+        ) : (
+          <div className="flex flex-col flex-wrap h-full items-center">
         <div
           className=" absolute z-[2] lg:mt-[20px] md:mt-[40px] mt-[60px]
                         lg:w-[calc(200px*1.4)] lg:h-[calc(100px*1.4)]
@@ -57,6 +69,7 @@ const FearGreedIndex = (props) => {
                         meter"
         ></div>
         {/* parseInt(dataIndex.slice(0,1).map(e => e.value)) */}
+        
         <MyElement
           data-rotation-angle="5"
           rotationAngle={`${
@@ -78,7 +91,7 @@ const FearGreedIndex = (props) => {
                         border-[5px] border-[#9ccddc] z-[4]"
         ></div>
         {dataIndex.slice(0, 1).map((e) => (
-          <div
+          <div key={e.value}
             className=" bg-[#062c43] 
                                 lg:w-[250px] lg:h-[50px] 
                                 md:w-[250px] md:h-[50px]   
@@ -139,6 +152,8 @@ const FearGreedIndex = (props) => {
           </span>
         </h1>
       </div>
+        )}
+      
     </div>
   );
 };

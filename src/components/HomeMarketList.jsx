@@ -117,7 +117,7 @@ const HomeMarketList = (props) => {
             
                 {data?.length ? (
                         data?.slice(firstPostIndex,lastPostIndex).map(data => 
-                            <div className=" 
+                            <div key={data.id} className=" 
                             cryptocard-grad
                             lg:w-[1000px] lg:h-[50px]
                             md:w-[100%] md:h-[50px]

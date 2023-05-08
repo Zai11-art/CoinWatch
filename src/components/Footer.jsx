@@ -5,7 +5,7 @@ function Footer() {
         {name:'Home' ,link: '/Home', id: 1},
         {name:'Apps' ,link: '/Apps', id: 2},
         {name:'News' ,link: '/News', id: 3},
-        {name:'About' ,link: '/About', id: 3},
+        {name:'About' ,link: '/About', id: 4},
     ]
 
     let iconLinks = [
@@ -31,7 +31,7 @@ function Footer() {
                         <ul className="flex flex-row ">
                         {
                             footerLinks.map(link => 
-                            <Link to={link.link}><li className={`text-white md:text-md font-semibold text-sm mx-4 ${textAnimation}`} key={link.id}>{link.name}</li></Link>
+                            <Link  key={link.id} to={link.link}><li className={`text-white md:text-md font-semibold text-sm mx-4 ${textAnimation}`} key={link.id}>{link.name}</li></Link>
                             )
                         }
                         </ul>
@@ -40,7 +40,7 @@ function Footer() {
                     <ul className="flex flex-row ">
                         {
                             iconLinks.map(link => 
-                            <a href={link.link}><li className={`text-white px-2 md:text-lg md:mr-5 ${textAnimation}`} key={link.id}>{link.icon}</li></a>
+                            <a href={link.link}  key={link.id}><li className={`text-white px-2 md:text-lg md:mr-5 ${textAnimation}`} key={link.id}>{link.icon}</li></a>
                             )
                         }
                         </ul>

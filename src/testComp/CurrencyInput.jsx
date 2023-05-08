@@ -12,11 +12,10 @@ const CurrencyInput = (props) => {
             h-[40px] w-[150px] select-currency
             lg:text-xl md:text-lg text-[20px]
             rounded-sm bg-[#02121c] text-[white]  p-1 mb-3 "
-            value={props.currency} onChange={ev => props.onCurrencyChange(ev.target.value)}>
+            value={props.currency} onChange={ev => props.onCurrencyChange(ev.target.value) }>
                 {props.currencies.map((currency => (
-                        <option value={`${currency}`}>
-                            <h1>{currency}</h1> 
-                            <span class="fi fi-us mr-1"></span>
+                        <option key={currency} value={`${currency}`}>
+                            {currency}
                         </option>
                 )))}
           </select>

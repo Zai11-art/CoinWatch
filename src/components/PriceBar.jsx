@@ -36,20 +36,20 @@ const PriceBar = (props) => {
         )}
       </div>
       <div className="text-white  mr-3 flex w-[150px] justify-around">
-        <Link to="/Apps">
+        <Link to="/Apps" key={0}>
           <span className="text-[white] xl:text-sm lg:text-sm text-[12px] font-semibold">Apps</span>
         </Link>
-        <Link to="/News">
+        <Link to="/News" key={1}>
           <span className="text-[white] xl:text-sm lg:text-sm text-[12px] font-semibold">News</span>
         </Link>
-        <Link to="/About">
+        <Link to="/About" key={2}>
           <span className="text-[white] xl:text-sm lg:text-sm text-[12px] font-semibold">Info</span>
         </Link>
       </div>
-      <div class="slideshow-container  xl:w-[100%] lg:w-[100%] md:w-[100%] w-[80%] h-[20px] bg-[#18263b]">
+      <div className="slideshow-container  xl:w-[100%] lg:w-[100%] md:w-[100%] w-[80%] h-[20px] bg-[#18263b]">
         <div className=" slideshow flex flex-row">
           {price?.map(data => 
-          <div className="flex flex-row px-[20px]  mx-1  shadow-blue-500 shadow-lg">
+          <div key={data.id} className="flex flex-row px-[20px]  mx-1  shadow-blue-500 shadow-lg">
               <div className="mx-2 text-sm text-white">{data.symbol.toUpperCase()}</div>
               <div className="mx-2 text-sm text-white">${(data.current_price).toLocaleString()}</div>
               <div className={`mx-2 text-sm ${data.price_change_percentage_24h < 0 ? 'text-[#ff4929]' : 'text-[#97ff29]' }`}>{(data.price_change_percentage_24h) }%</div>

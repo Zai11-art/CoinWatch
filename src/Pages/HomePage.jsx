@@ -24,8 +24,10 @@ function Home() {
     .then((res) => res.data.bitcoin.usd)
     })
 
+    
+
     return ( 
-        <main className={`w-full  h-[100%] bg-[#051925] flex flex-col items-center`}>
+        <main className={`w-[100%]  h-[100%] bg-[#051925] flex flex-col items-center`}>
                 <HomeHeadCard/>
             <div className="flex flex-row lg:w-[1000px] lg:h-[260px]
             md:w-[700px] md:h-[300px]

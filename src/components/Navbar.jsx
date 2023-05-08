@@ -4,9 +4,9 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 
 function Navbar() {
 let navLinks = [
-    {name:'Home' ,link: '/Home', id: 1},
-    {name:'Apps' ,link: '/Apps', id: 2},
-    {name:'News' ,link: '/News', id: 3},
+    {name:'Home' ,link: '/Home', id: 0},
+    {name:'Apps' ,link: '/Apps', id: 1},
+    {name:'News' ,link: '/News', id: 2},
 ]
 
 const [open, setOpen] = useState(false)
@@ -33,7 +33,7 @@ const [open, setOpen] = useState(false)
             duration-500 ease-in-out left-[-0.1px]  pb-[25px]` }>
                 {
                 navLinks.map(link => 
-                    <Link to={link.link}>
+                    <Link to={link.link} key={link.id}> 
                     {/* <a href={link.link}> */}
                         <li 
                         className="text-white md:ml-6 ml-7 h font-semibold 
